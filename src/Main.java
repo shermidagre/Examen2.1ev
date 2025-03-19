@@ -31,6 +31,7 @@ public class Main {
          * @param dni
          * @return la letra del DNI
          */
+
         public static char calcularLetraDNI (String dni) {
             // array de caracteres con las letras del DNI
             char[] letrasDNI = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'Q', 'S', 'V', 'H', 'L', 'C', 'K', 'E'};
