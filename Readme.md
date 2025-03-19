@@ -183,4 +183,81 @@ Como mencioné, el test que falla es el de comprobación de la letra, ya que no 
 
 ![Detección de errores](testfallido.png)
 
+Este es un test normal y no un parametrizado, probemos con el parametrizado a continuacion
+
+        @ParameterizedTest
+
+        @CsvSource({
+
+                "00000000, T",
+
+                "12345678, R",
+
+                "12345679, W",
+
+                "12345670, A",
+
+                "12345671, G",
+
+                "12345672, M",
+
+                "12345673, Y",
+
+                "12345674, F",
+
+                "12345675, P",
+
+                "12345676, D",
+
+                "12345677, X",
+
+                "12345680, J",
+
+                "12345681, Z",
+
+                "12345682, Q",
+
+                "12345683, S",
+
+                "12345684, V",
+
+                "12345685, H",
+
+                "12345686, L",
+
+                "12345687, C",
+
+                "12345688, K",
+
+                "12345689, E"
+
+        })
+
+        public void testCalcularLetraDNI(String dni, char letraEsperada) {
+
+            // Test para calcular la letra del DNI
+
+            assertEquals(letraEsperada, Main.calcularLetraDNI(dni), "La letra calculada debería ser '" + letraEsperada + "'");
+
+        }
+
+
+        @Test
+
+        public void testLetraDNIInvalido() {
+
+            // Test para un DNI inválido (no numérico)
+
+            assertThrows(NumberFormatException.class, () -> {
+
+                Main.calcularLetraDNI("abcdefgh");
+
+            }, "Debería lanzar una excepción por formato de número inválido");
+
+        }
+
+![Test parametrizado](testparametrizado.png)
+
+Como se puede observar gracias al test parametrizado, este comprueba todo y asi puede tener una solucion mas epecifica y completa que el test normal,por lo cual he decidido realizar dos archivos de test diferentes dentro de la carpeta test, para asi tenerlo mejor organizado.
+
 Para solucionar este error comprobaremos bien las letras en el codigo ya que el calculo no esta correctamente realizado
