@@ -317,3 +317,40 @@ public class TestParametrizados {
 Como se puede observar gracias al test parametrizado, este comprueba todo y asi puede tener una solucion mas epecifica y completa que el test normal,por lo cual he decidido realizar dos archivos de test diferentes dentro de la carpeta test, para asi tenerlo mejor organizado.
 
 Para solucionar este error comprobaremos bien las letras en el codigo ya que el calculo no esta correctamente realizado
+
+
+3. **Comprobación de Longitud de DNI
+
+Habria que incluir un nuevo test para asi realizar todas las comprobaciones posibles a la longitud como lo puede ser este.
+
+        @ParameterizedTest
+
+        @CsvSource({
+
+            "0000000, I",  // Demasiado corto
+
+            "000000000, T", // Demasiado largo
+
+            "1234567, R",   // Demasiado corto
+
+            "123456789, W", // Demasiado largo
+
+            "12345678, X",  // Longitud correcta pero letra incorrecta
+
+            "1234567, G",   // Demasiado corto
+
+            "1234567890, A" // Demasiado largo
+
+        })
+
+        public void testDNILongitudIncorrecta(String dni, char letraEsperada) {
+
+            // Test para DNIs con longitud incorrecta
+
+            assertFalse(Main.comprobarDNI(dni, letraEsperada), "El DNI no debería ser válido debido a longitud incorrecta");
+
+        }
+
+Como antes dicho debemos realizar un test parametrizado para estos casos
+
+
