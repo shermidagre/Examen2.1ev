@@ -353,4 +353,6 @@ Habria que incluir un nuevo test para asi realizar todas las comprobaciones posi
 
 Como antes dicho debemos realizar un test parametrizado para estos casos
 
+Por lo cual he decido añadir otro test para este caso.
+
 
