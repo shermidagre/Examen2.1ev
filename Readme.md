@@ -256,7 +256,7 @@ Este es un test normal y no un parametrizado, probemos con el parametrizado a co
 
         }
 
-![Test parametrizado](testparametrizado.png)
+![Test parametrizado](Testparametrizado.png)
 
 Como se puede observar gracias al test parametrizado, este comprueba todo y asi puede tener una solucion mas epecifica y completa que el test normal,por lo cual he decidido realizar dos archivos de test diferentes dentro de la carpeta test, para asi tenerlo mejor organizado.
 
