@@ -112,3 +112,5 @@ Como mencioné, el test que falla es el de comprobación de la letra, ya que no 
 
 
 ![Detección de errores](testfallido.png)
+
+Para solucionar este error
