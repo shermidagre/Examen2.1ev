@@ -185,6 +185,35 @@ Como mencioné, el test que falla es el de comprobación de la letra, ya que no 
 
 Este es un test normal y no un parametrizado, probemos con el parametrizado a continuacion
 
+public class TestParametrizados {
+
+    @Nested
+
+    class MainTest {
+
+
+        @Test
+
+        public void testDNIValido() {
+
+            // Test con un DNI válido
+
+            assertTrue(Main.comprobarDNI("00000000", 'T'), "El DNI debería ser correcto");
+
+        }
+
+
+        @Test
+
+        public void testDNInvalido() {
+
+            // Test con un DNI válido pero letra incorrecta
+
+            assertFalse(Main.comprobarDNI("00000000", 'R'), "El DNI debería ser incorrecto");
+
+        }
+
+
         @ParameterizedTest
 
         @CsvSource({
@@ -255,6 +284,33 @@ Este es un test normal y no un parametrizado, probemos con el parametrizado a co
             }, "Debería lanzar una excepción por formato de número inválido");
 
         }
+
+
+        @ParameterizedTest
+
+        @CsvSource({
+
+                "0000000, I",
+
+                "0000000, O",
+
+                "0000000, Ñ",
+
+                "0000000, U"
+
+        })
+
+        public void testDNICaracteresProhibidos(String dni, char letraProhibida) {
+
+            // Test para DNIs que contienen letras prohibidas
+
+            assertFalse(Main.comprobarDNI(dni, letraProhibida), "El DNI no debería ser válido porque contiene '" + letraProhibida + "'");
+
+        }
+
+    }
+
+}
 
 ![Test parametrizado](Testparametrizado.png)
 
