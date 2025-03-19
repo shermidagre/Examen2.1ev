@@ -30,3 +30,5 @@ Entrega tu repositorio con el código y los test. Además, incluye un README exp
 
 
 ### Formato del README (1 punto)
+
+# Comienzo del examen
